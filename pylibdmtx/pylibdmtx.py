@@ -309,7 +309,7 @@ def _encoder():
         dmtxEncodeDestroy(byref(encoder))
 
 
-def encode(data, scheme=None, size=None):
+def encode(data, scheme=None, size=None, fnc1=None):
     """
     Encodes `data` in a DataMatrix image.
 
@@ -355,6 +355,7 @@ def encode(data, scheme=None, size=None):
     with _encoder() as encoder:
         dmtxEncodeSetProp(encoder, DmtxProperty.DmtxPropScheme, scheme)
         dmtxEncodeSetProp(encoder, DmtxProperty.DmtxPropSizeRequest, size)
+        dmtxEncodeSetProp(encoder, DmtxProperty.DmtxPropFnc1, fnc1)
 
         if dmtxEncodeDataMatrix(encoder, len(data), cast(data, c_ubyte_p)) == 0:
             raise PyLibDMTXError(
