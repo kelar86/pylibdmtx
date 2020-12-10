@@ -309,7 +309,7 @@ def _encoder():
         dmtxEncodeDestroy(byref(encoder))
 
 
-def encode(data, scheme=None, size=None, fnc1=None):
+def encode(data, scheme=None, size=None, fnc1=232):
     """
     Encodes `data` in a DataMatrix image.
 
