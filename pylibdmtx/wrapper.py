@@ -416,6 +416,7 @@ if LooseVersion(dmtxVersion()) < LooseVersion('0.7.5'):
             ('rxfrm', DmtxMatrix3),
         ]
 else:
+    print('Version > 0.7.5')
     class DmtxEncode(Structure):
         _fields_ = [
             ('method', c_int),
